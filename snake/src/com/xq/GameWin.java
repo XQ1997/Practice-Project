@@ -1,3 +1,5 @@
+package com.xq;
+
 import javax.swing.*;
 import java.awt.*;
 
