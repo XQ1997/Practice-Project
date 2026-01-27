@@ -22,6 +22,14 @@ public class GameWin extends JFrame {
         this.setLocationRelativeTo(null);
         //设置窗口的标题
         this.setTitle("贪吃蛇小游戏");
+        while (true){
+            repaint();
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     //重写pint方法

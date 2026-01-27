@@ -24,8 +24,28 @@ public class HeadObj extends GameObj {
         super(img, x, y, frame);
     }
 
+    //蛇的移动
+    public void move(){
+        switch (direction){
+            case "up":
+                y -= height;
+                break;
+            case "down":
+                y += height;
+                break;
+            case "left":
+                x -= width;
+                break;
+            case "right":
+                x += width;
+            default:
+                break;
+        }
+    }
+
     @Override
     public void paintSelf(Graphics g) {
         super.paintSelf(g);
+        move();
     }
 }
