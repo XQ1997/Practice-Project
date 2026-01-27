@@ -68,6 +68,13 @@ public class GameObj {
     public GameObj() {
     }
 
+    public GameObj(Image img, int x, int y, GameWin frame) {
+        this.img = img;
+        this.x = x;
+        this.y = y;
+        this.frame = frame;
+    }
+
     public GameObj(Image img, int x, int y, int width, int height, GameWin frame) {
         this.img = img;
         this.x = x;

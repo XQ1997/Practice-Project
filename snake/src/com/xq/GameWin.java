@@ -1,5 +1,8 @@
 package com.xq;
 
+import com.xq.obj.HeadObj;
+import com.xq.utils.GameUtils;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,6 +11,8 @@ import java.awt.*;
  */
 public class GameWin extends JFrame {
 
+    //定义蛇头对象 指向当前对象
+    HeadObj headObj = new HeadObj(GameUtils.rightImg,30,570,this);
     public void launch(){
         //设置窗口是否可见
         this.setVisible(true);
@@ -36,6 +41,8 @@ public class GameWin extends JFrame {
             //竖线
             g.drawLine(i * 30,0,i * 30,600);
         }
+        //绘制蛇头
+        headObj.paintSelf(g);
     }
 
     public static void main(String[] args) {
