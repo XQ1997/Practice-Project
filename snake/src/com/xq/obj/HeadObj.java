@@ -93,5 +93,15 @@ public class HeadObj extends GameObj {
     public void paintSelf(Graphics g) {
         super.paintSelf(g);
         move();
+        //越界处理
+        if (x < 0){
+            x = 570;
+        } else if (x > 570){
+            x = 0;
+        } else if (y < 30){
+            y = 570;
+        }else if (y > 570){
+            y = 30;
+        }
     }
 }
