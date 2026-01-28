@@ -1,9 +1,11 @@
 package com.xq.obj;
 
-
 import com.xq.GameWin;
+import com.xq.utils.GameUtils;
 
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 /**创建蛇头部
  * @author 26455
@@ -22,6 +24,50 @@ public class HeadObj extends GameObj {
 
     public HeadObj(Image img, int x, int y, GameWin frame) {
         super(img, x, y, frame);
+        //键盘监听事件
+        this.frame.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                changeDirection(e);
+            }
+        });
+    }
+
+    //控制移动方向  w -up  a - left   d -right  s-down 将原来的wasd替换成上下左右
+    public void changeDirection(KeyEvent e){
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_LEFT:
+                // 替换原来的 VK_A
+                if (!"right".equals(direction)) {
+                    direction = "left";
+                    img = GameUtils.leftImg;
+                }
+                break;
+            case KeyEvent.VK_RIGHT:
+                // 替换原来的 VK_D
+                if (!"left".equals(direction)) {
+                    direction = "right";
+                    img = GameUtils.rightImg;
+                }
+                break;
+            case KeyEvent.VK_UP:
+                // 替换原来的 VK_W
+                if (!"down".equals(direction)) {
+                    direction = "up";
+                    img = GameUtils.upImg;
+                }
+                break;
+            case KeyEvent.VK_DOWN:
+                // 替换原来的 VK_S
+                if (!"up".equals(direction)) {
+                    direction = "down";
+                    img = GameUtils.downImg;
+                }
+                break;
+            default:
+                break;
+        }
+
     }
 
     //蛇的移动
